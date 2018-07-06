@@ -1,0 +1,26 @@
+﻿@model PostEF.Models.Post
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+
+@using (Html.BeginForm("Delete", "Post"))
+{
+    @Html.HiddenFor(m => m.IdP)
+    @Html.HiddenFor(m => m.Title)
+<div class="form-group">
+    <h2>Eliminar</h2>
+    <p>
+        ¿¿Deseas eliminar el post: @Model.IdP ?
+    </p>
+    <p>
+        @Html.ActionLink("Cancelar", "Index")
+    </p>
+    <input type="submit" value="Si" />
+</div>
+}
+
+

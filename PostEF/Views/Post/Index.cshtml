@@ -1,0 +1,27 @@
+﻿@using PostEF.Models
+@model List<Post>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Posts</h2>
+
+<div class="container">
+    <div class="col-lg-offset-9">
+        <a>@Html.ActionLink("Agregar", "EditAdd")</a>
+    </div>
+    
+    @foreach (var post in Model)
+    {
+    <dl>
+        <dt>---------------------------------------------------------------------</dt>
+        <dt>@Html.ActionLink(post.Title, "ShowPost", new { id = post.IdP })</dt>
+        <dt>@post.Date</dt>
+        <dt>@Html.ActionLink("Editar", "EditAdd", new { id = post.IdP })</dt>
+        <dt>@Html.ActionLink("Eliminar", "Delete", new { id = post.IdP })</dt>
+        @Html.HiddenFor(m => post.IdP)
+    </dl>
+    }
+</div>
+
+
